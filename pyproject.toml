@@ -1,0 +1,26 @@
+[project]
+name = "ascii-pres"
+version = "0.1.0"
+description = "A text-based ASCII presentation tool"
+authors = [
+    {name = "0BitPixel",email = "quirincr.dev@proton.me"}
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "ascii_pres", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "black (>=25.11.0,<26.0.0)",
+    "ruff (>=0.14.4,<0.15.0)",
+    "pytest (>=9.0.0,<10.0.0)"
+]
