@@ -1,5 +1,7 @@
+import cli
+
 def main():
-    pass
+    input_folder_path = cli.get_input_folder()
 
 if __name__ == '__main__':
     main()
