@@ -1,11 +1,12 @@
+from sys import argv as command_line_arguments
 from time import sleep
 from sys import exit
 import traceback
 
 from ascii_pres import cli
-from ascii_pres import config
 from ascii_pres import parse
-from ascii_pres import draw
+from ascii_pres import areas
+from ascii_pres import non_area
 from ascii_pres.state import state
 
 
@@ -16,31 +17,33 @@ RESET_TERMINAL = f"{CLEAR_SCREEN}{RESET_STYLE}{HOME_CURSOR}"
 
 
 def main():
-    input_folder_path = cli.get_input_folder()
-    config.parse_config_file(input_folder_path)
+    state.working_directory = cli.get_input_folder(command_line_arguments)
+    state.config = parse.config_file(state.working_directory / "config.toml")
 
-    parse.check_slides()
+    parse.check_slides(state.working_directory)
 
     while state.run:
-        slide_data = parse.next_slide()
-        if slide_data is None:
+        state.current_slide += 1
+        if not state.current_slide_exists:
             state.run = False
             break
-        # FIXME: /s_d.c.a_a/ = placeholder until slide_data structure is known
-        if not slide_data.config.auto_advance:
-            wait_for_trigger()
+        slide_data = parse.slide(state.current_slide)
+
+        # FIXME: None -> slide_data.config.auto_advance = placeholder until slide_data structure is known
+        if not None:
+            _wait_for_trigger()
         else:
-            # FIXME: /s_d.c.a_a_d/ = placeholder until slide_data structure is known
-            sleep(slide_data.config.auto_advance_delay)
-        draw.non_area(slide_data)
-        draw.areas(slide_data)
+            # FIXME: 0 -> slide_data.config.auto_advance_delay = placeholder until slide_data structure is known
+            sleep(0)
+        non_area.draw(slide_data)
+        areas.draw(slide_data)
 
-    wait_for_trigger()
+    _wait_for_trigger()
 
 
-def wait_for_trigger():
-    raise NotImplementedError
-
+def _wait_for_trigger():
+    # TODO: implement main._wait_for_trigger()
+    print("NOT IMPLEMENTED: main._wait_for_trigger()")
 
 if __name__ == '__main__':
     # noinspection PyBroadException
