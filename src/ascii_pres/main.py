@@ -29,12 +29,10 @@ def main():
             break
         slide_data = parse.slide(state.current_slide)
 
-        # FIXME: None -> slide_data.config.auto_advance = placeholder until slide_data structure is known
-        if not None:
-            _wait_for_trigger()
+        if slide_data["config"]["auto_advance"]:
+            sleep(slide_data["config"]["auto_advance_delay"])
         else:
-            # FIXME: 0 -> slide_data.config.auto_advance_delay = placeholder until slide_data structure is known
-            sleep(0)
+            _wait_for_trigger()
         non_area.draw(slide_data)
         areas.draw(slide_data)
 
