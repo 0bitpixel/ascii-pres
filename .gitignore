@@ -16,6 +16,7 @@ dist/
 
 # IDEs
 .vscode/
+.idea/
 
 # Data
 data/
