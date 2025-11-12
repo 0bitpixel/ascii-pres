@@ -18,12 +18,12 @@ The argument expects a folder containing the presentation data.
 
 ## Presentation Data
 
-presentation-data
-|- 001.slide
-|- 002.slide
-|- ...
-|- ###.slide
-'- config.toml
+presentation-data  
+|- 001.slide  
+|- 002.slide  
+|- ...  
+|- ###.slide  
+'- config.toml  
 
 ### .slide Files
 
