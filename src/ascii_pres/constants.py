@@ -1,0 +1,2 @@
+VALID_FORMATS = {"1.0", }
+DEFAULT_ENCODING = "utf-8"

@@ -21,13 +21,14 @@ def main():
     state.config = parse.config_file(state.working_directory / "config.toml")
 
     parse.check_slides(state.working_directory)
+    # TODO: enum slides
 
     while state.run:
         state.current_slide += 1
         if not state.current_slide_exists:
             state.run = False
             break
-        slide_data = parse.slide(state.current_slide)
+        slide_data = parse.slide(state.current_slide) # TODO: add slide order and working dir
 
         if slide_data["config"]["auto_advance"]:
             sleep(slide_data["config"]["auto_advance_delay"])

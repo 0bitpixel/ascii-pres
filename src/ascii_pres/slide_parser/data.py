@@ -17,9 +17,8 @@ class ConfigDict(TypedDict):
     auto_advance_delay: float
 
 class AreaDict(TypedDict):
-    id: int | None
-    coordinate1: Tuple[int, int] | None
-    coordinate2: Tuple[int, int] | None
+    coord1: Tuple[int, int] | None
+    coord2: Tuple[int, int] | None
     foreground: int
     background: int
     draw_method: str
@@ -52,9 +51,8 @@ DEFAULT_SLIDE: SlideDict = {
 }
 
 DEFAULT_AREA: AreaDict = {
-    "id": None,
-    "coordinate1": None,
-    "coordinate2": None,
+    "coord1": None,
+    "coord2": None,
     "foreground": 7,
     "background": 0,
     "draw_method": "linebyline",

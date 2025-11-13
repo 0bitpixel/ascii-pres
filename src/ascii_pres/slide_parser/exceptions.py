@@ -1,0 +1,2 @@
+class SlideSyntaxError(Exception):
+    pass
