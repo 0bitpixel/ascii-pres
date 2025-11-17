@@ -60,6 +60,7 @@ ENDSECTION
     - `option = value`
     - `long optionname=long value`
 - SECTION `content` *must not* contain string `ENDSECTION` verbatim.
+- { } multiline delimiters must be surrounded by whitespace, as they are handled as a token.
 
 #### 2.1.2. Implemented Sections
 - `format`
