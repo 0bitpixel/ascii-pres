@@ -4,7 +4,6 @@ from sys import exit
 import traceback
 
 from ascii_pres import cli
-from ascii_pres import parse
 from ascii_pres import areas
 from ascii_pres import non_area
 from ascii_pres.state import state
@@ -18,16 +17,15 @@ RESET_TERMINAL = f"{CLEAR_SCREEN}{RESET_STYLE}{HOME_CURSOR}"
 
 def main():
     state.working_directory = cli.get_input_folder(command_line_arguments)
-    state.config = parse.config_file(state.working_directory / "config.toml")
 
-    parse.check_slides(state.working_directory)
+    pass # FIXME: ->parse.check_all_slides
 
     while state.run:
         state.current_slide += 1
         if not state.current_slide_exists:
             state.run = False
             break
-        slide_data = parse.slide(state.current_slide)
+        slide_data = None # FIXME: ->parse.slide(state.current_slide)
 
         # FIXME: None -> slide_data.config.auto_advance = placeholder until slide_data structure is known
         if not None:
