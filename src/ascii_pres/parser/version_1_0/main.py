@@ -20,7 +20,8 @@ def main(input_path: Path, single_file: str=None):
     #     return
     #
     #     parse(input_file):
-    #     sections = sectionize(input_file)
+    #     file_lines = file.readlines()
+    #     sections = sectionize(file_lines)
     #     tokens = tokenize(sections)
     #     collection = collectify(tokens)
     #     data = dataify(collection)
