@@ -1,4 +1,4 @@
-def structurify(input_sections: dict[str, list[str]]) -> dict[str, dict[str, dict[str, str]]]:
+def structurify(tokenized_sections: dict[str, list[list[str]]]) -> dict[str, dict[str, dict[str, str]]]:
     """
     Structures tokens from token list into:
     {
@@ -7,14 +7,14 @@ def structurify(input_sections: dict[str, list[str]]) -> dict[str, dict[str, dic
             <option> = <value>
     }}}
 
-    :param input_sections: dict of section_names and _bodies
+    :param tokenized_sections: dict of section_names and _bodies
     :return: data: {section: {keyword: {option: value=<value>}}}
     """
 
     # === PSEUDOCODE ===
     # keyword_collection = {}
     #
-    # for section in input_sections:
+    # for section in tokenized_sections:
     #     if section_name = content:
     #         data["content"] = section_body
     #         continue
